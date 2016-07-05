@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>АнтиПЭ</title>
+	<style>
+		label{display: block}
+		#resultText > b{color: red}
+	</style>
+</head>
+<body>
+	<h1>АнтиПЭ</h1>
+	<h3>Фраза, внешне похожая на кириллицу</h3>
+	<input type="text" value="— A чтo ecли рaк yкpoeтcя? — Haйдeм. — Kpoшeк cыпь. ПятNizza" readonly id="dirtyText" style="width:50%;height:30px;font-size: 90%" />
+	<h3>Очищенный текст</h3>
+	<div id="resultText"></div>
+
+	<h2>Что произошло?</h2>
+	<p>Скрипт нашел и заменил в исходном тексте все латинские символы на их кириллические (внешне похожие) аналоги.</p>
+	<br/>
+	<p>Ссылка на <a href="https://github.com/spearance/antiPE">GitHub</a></p>
+
+	<script>
+		var dirtyText = document.querySelector('#dirtyText');
+		var resultText = document.querySelector('#resultText');
+
+		function antiPE(str){
+			var obj = { "A": "А", "a": "а", "E": "Е", "e": "е", "T": "Т", "y": "у", "O": "О", "o": "о", "P": "Р", "p": "р", "H": "Н", "K": "К", "X": "Х", "x": "х", "C": "С", "c": "с", "B": "В", "M": "М" };
+
+			if (str !== '') {
+				for (var key in obj) {
+					var r = new RegExp(key, 'g');
+					str = str.replace(r, '<b>' + obj[key] + '</b>');
+				}
+			}
+
+			return str;
+		}
+
+		resultText.innerHTML = antiPE(dirtyText.value);
+	</script>
+</body>
+</html>
