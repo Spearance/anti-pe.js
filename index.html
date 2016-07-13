@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>АнтиПЭ</title>
+	<script src="./antiPE.js"></script>
 	<style>
 		label{display: block}
 		#resultText > b{color: red}
@@ -16,26 +17,13 @@
 	<div id="resultText"></div>
 
 	<h2>Что произошло?</h2>
-	<p>Скрипт нашел и заменил в исходном тексте все латинские символы на их кириллические (внешне похожие) аналоги.</p>
+	<p>Скрипт нашёл и заменил в исходном тексте все латинские символы на их кириллические (внешне похожие) аналоги.</p>
 	<br/>
 	<p>Ссылка на <a href="https://github.com/spearance/antiPE">GitHub</a></p>
 
 	<script>
 		var dirtyText = document.querySelector('#dirtyText');
 		var resultText = document.querySelector('#resultText');
-
-		function antiPE(str){
-			var obj = { "A": "А", "a": "а", "E": "Е", "e": "е", "T": "Т", "y": "у", "O": "О", "o": "о", "P": "Р", "p": "р", "H": "Н", "K": "К", "X": "Х", "x": "х", "C": "С", "c": "с", "B": "В", "M": "М" };
-
-			if (str !== '') {
-				for (var key in obj) {
-					var r = new RegExp(key, 'g');
-					str = str.replace(r, '<b>' + obj[key] + '</b>');
-				}
-			}
-
-			return str;
-		}
 
 		resultText.innerHTML = antiPE(dirtyText.value);
 	</script>
