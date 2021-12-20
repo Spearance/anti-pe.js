@@ -4,10 +4,24 @@
 	<meta charset="UTF-8">
 	<title>АнтиПЭ</title>
 	<style>
-		label{display: block}
-		#resultText > b{color: red}
-		#git{margin-top: 30px}
-		#dirtyText{width: 50%; height: 30px; font-size: 90%}
+		body {
+			font-size: 110%;
+			background-color: #F5F5F5;
+		}
+		label{
+			display: block;
+		}
+		#resultText > b{
+			color: #FF2200;
+		}
+		#git{
+			margin-top: 30px;
+		}
+		#dirtyText{
+			width: 50%;
+			height: 30px;
+			font-size: 90%;
+		}
 	</style>
 </head>
 <body>
@@ -22,23 +36,24 @@
 	<p id="git">Ссылка на <a href="https://github.com/spearance/antiPE">GitHub</a></p>
 
 	<script>
-		var dirtyText = document.querySelector('#dirtyText');
-		var resultText = document.querySelector('#resultText');
+		const dirtyText = document.querySelector('#dirtyText')
+		const resultText = document.querySelector('#resultText')
 
-		function antiPE(str){
-			if (str) {
-				var obj = { "A": "А", "a": "а", "E": "Е", "e": "е", "T": "Т", "y": "у", "O": "О", "o": "о", "P": "Р", "p": "р", "H": "Н", "K": "К", "X": "Х", "x": "х", "C": "С", "c": "с", "B": "В", "M": "М" };
-
-				for (var key in obj) {
-					var r = new RegExp(key, 'g');
-					str = str.replace(r, '<b>' + obj[key] + '</b>');
-				}
-			}
-
-			return str;
+		const mask = {
+			"A": "А","a": "а","E": "Е","e": "е","T": "Т","y": "у","O": "О","o": "о","P": "Р","p": "р","H": "Н","K": "К","X": "Х","x": "х","C": "С","c": "с","B": "В","M": "М"
 		}
 
-		resultText.innerHTML = antiPE(dirtyText.value);
+		const antiPE = (str) => {
+			if (!str) {
+				return str
+			}
+
+			for (let key in mask) {
+				str = str.replaceAll(key, mask[key])
+			}
+		}
+
+		resultText.textContent = antiPE(dirtyText.value)
 	</script>
 </body>
 </html>
