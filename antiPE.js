@@ -29,7 +29,9 @@ const antiPE = (str) => {
 		return str
 	}
 
-	for (let key in mask) {
-		str = str.replaceAll(key, mask[key])
-	}
+	Object.entries(mask).forEach(([en, ru]) => {
+		str = str.replaceAll(en, ru)
+	})
+	
+	return str
 }
