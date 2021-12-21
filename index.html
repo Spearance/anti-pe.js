@@ -5,7 +5,7 @@
 	<title>АнтиПЭ</title>
 	<style>
 		body {
-			font-size: 110%;
+			font-size: 120%;
 			background-color: #F5F5F5;
 		}
 		label{
@@ -26,12 +26,12 @@
 </head>
 <body>
 	<h1>antiPE.js</h1>
-	<h3>Фраза, внешне похожая на кириллицу</h3>
+	<h4>Фраза, внешне похожая на кириллицу</h4>
 	<input type="text" value="— A чтo ecли рaк yкpoeтcя? — Haйдeм. — Kpoшeк cыпь." readonly id="dirtyText" />
-	<h3>Очищенный текст</h3>
+	<h4>Очищенный текст</h4>
 	<div id="resultText"></div>
 
-	<h2>Что произошло?</h2>
+	<h4>Что произошло?</h4>
 	<p>Скрипт нашёл и заменил в исходном тексте все латинские символы на их кириллические (внешне похожие) аналоги.</p>
 	<p id="git">Ссылка на <a href="https://github.com/spearance/antiPE">GitHub</a></p>
 
@@ -48,9 +48,9 @@
 				return str
 			}
 
-			for (let key in mask) {
-				str = str.replaceAll(key, `<b>${mask[key]}</b>`)
-			}
+			Object.entries(mask).forEach(([en, ru]) => {
+				str = str.replaceAll(en, `<b>${ru}</b>`)
+			})
 
 			return str
 		}
