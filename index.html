@@ -49,11 +49,13 @@
 			}
 
 			for (let key in mask) {
-				str = str.replaceAll(key, mask[key])
+				str = str.replaceAll(key, `<b>${mask[key]}</b>`)
 			}
+
+			return str
 		}
 
-		resultText.textContent = antiPE(dirtyText.value)
+		resultText.innerHTML = antiPE(dirtyText.value)
 	</script>
 </body>
 </html>
