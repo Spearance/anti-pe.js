@@ -1,0 +1,22 @@
+"name": "anti-pe.js",
+"version": "2.1.1",
+"license": "MIT",
+"description": "Replace visually similar letters from English to Russian",
+"main": "anti-pe.js",
+"author": {
+  "name": "Evgeniy Lepeshkin",
+  "email": "mail@spearance.ru",
+  "url": "https://spearance.ru"
+},
+"keywords": [
+  "correct",
+  "chars"
+],
+"repository": {
+  "type": "git",
+  "url": "git+https://github.com/Spearance/anti-pe.js.git"
+},
+"bugs": {
+  "url": "https://github.com/Spearance/anti-pe.js/issues"
+},
+"homepage": "https://github.com/Spearance/anti-pe.js#readme"
