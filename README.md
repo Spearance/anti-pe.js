@@ -1,4 +1,7 @@
-# antiPE.js
+# anti-pe.js
+
+[![NPM version](https://img.shields.io/npm/v/anti-pe.js.svg?style=flat)](https://www.npmjs.com/package/anti-pe.js)
+[![NPM downloads](https://img.shields.io/npm/dm/anti-pe.js.svg?style=flat)](https://www.npmjs.com/package/anti-pe.js)
 
 Заменяет в исходном тексте все латинские символы на их кириллические (внешне похожие) аналоги.
 
