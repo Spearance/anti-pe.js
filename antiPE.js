@@ -1,4 +1,14 @@
-'use strict';
+/*
+	https://github.com/Spearance/anti-pe.js
+
+	Copyright 2022, Evgeniy Lepeshkin
+
+	Released under the MIT license.
+	http://www.opensource.org/licenses/mit-license.php
+
+	Version: v 2.1.1
+	Date: Jan 20, 2022
+*/
 
 const mask = {
 	"A": "А",
@@ -24,7 +34,7 @@ const mask = {
 /**
  * @param {string} str
  */
-const antiPE = (str) => {
+export const antiPE = (str) => {
 	if (!str) {
 		return str
 	}
@@ -32,6 +42,6 @@ const antiPE = (str) => {
 	Object.entries(mask).forEach(([en, ru]) => {
 		str = str.replaceAll(en, ru)
 	})
-	
+
 	return str
 }
